@@ -1,0 +1,129 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-pink: var(--neon-pink);
+
+  --font-display: "Montserrat", "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-grid-move: grid-move 20s linear infinite;
+  --animate-fade-up: fade-up 0.8s ease-out both;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.12 0.01 90);
+  --foreground: oklch(0.98 0.005 90);
+  --card: oklch(0.16 0.01 90 / 0.7);
+  --card-foreground: oklch(0.98 0.005 90);
+  --popover: oklch(0.14 0.01 90);
+  --popover-foreground: oklch(0.98 0.005 90);
+  --primary: oklch(0.82 0.14 85);
+  --primary-foreground: oklch(0.12 0.01 90);
+  --secondary: oklch(0.2 0.02 90);
+  --secondary-foreground: oklch(0.98 0.005 90);
+  --muted: oklch(0.18 0.01 90);
+  --muted-foreground: oklch(0.7 0.02 90);
+  --accent: oklch(0.82 0.14 85);
+  --accent-foreground: oklch(0.12 0.01 90);
+  --destructive: oklch(0.65 0.25 25);
+  --destructive-foreground: oklch(0.98 0.005 90);
+  --border: oklch(0.3 0.02 90 / 0.5);
+  --input: oklch(0.2 0.02 90);
+  --ring: oklch(0.82 0.14 85);
+
+  --neon-cyan: oklch(0.82 0.14 85);
+  --neon-purple: oklch(0.72 0.16 75);
+  --neon-pink: oklch(0.88 0.1 90);
+
+  --gradient-neon: linear-gradient(135deg, oklch(0.88 0.12 90), oklch(0.72 0.16 75));
+  --gradient-radial: radial-gradient(circle at 50% 0%, oklch(0.3 0.08 85 / 0.45), transparent 70%);
+  --shadow-neon-cyan: 0 0 30px oklch(0.82 0.14 85 / 0.35), 0 0 60px oklch(0.82 0.14 85 / 0.2);
+  --shadow-neon-purple: 0 0 30px oklch(0.72 0.16 75 / 0.35), 0 0 60px oklch(0.72 0.16 75 / 0.2);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 20px oklch(0.82 0.14 85 / 0.3); }
+  50% { text-shadow: 0 0 40px oklch(0.82 0.14 85 / 0.5); }
+}
+
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0.02em; }
+}
+
+@utility text-gradient-neon {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-cyan { box-shadow: var(--shadow-neon-cyan); }
+@utility glow-purple { box-shadow: var(--shadow-neon-purple); }
+
+@utility cyber-grid {
+  background-image:
+    linear-gradient(oklch(0.85 0.18 200 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.85 0.18 200 / 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
