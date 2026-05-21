@@ -16,10 +16,15 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-gradient-neon">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Signal lost</h2>
+
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          Signal lost
+        </h2>
+
         <p className="mt-2 text-sm text-muted-foreground">
           This sector of the grid does not exist.
         </p>
+
         <div className="mt-6">
           <Link
             to="/"
@@ -33,8 +38,15 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
   console.error(error);
+
   const router = useRouter();
 
   return (
@@ -67,6 +79,11 @@ export const Route =
     head: () => ({
       meta: [
         { charSet: "utf-8" },
+
+        {
+          name: "google-site-verification",
+          content: "XntwqsV3HGNbck1ApmOAe35xwZa2xUPxzCggjIbQEUY",
+        },
 
         {
           name: "viewport",
