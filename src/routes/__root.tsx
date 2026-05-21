@@ -1,4 +1,4 @@
-```tsx
+```tsx id="h2m8qx"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -79,11 +79,6 @@ export const Route =
     head: () => ({
       meta: [
         { charSet: "utf-8" },
-
-        {
-          name: "google-site-verification",
-          content: "XntwqsV3HGNbck1ApmOAe35xwZa2xUPxzCggjIbQEUY",
-        },
 
         {
           name: "viewport",
@@ -173,6 +168,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+
+        <meta
+          name="google-site-verification"
+          content="XntwqsV3HGNbck1ApmOAe35xwZa2xUPxzCggjIbQEUY"
+        />
       </head>
 
       <body>
